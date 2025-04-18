@@ -6,7 +6,7 @@ import Movies from './components/Movies';
 import Error from './components/Error';
 import Play from './components/Play'; 
 import About from './components/About';
-import Terms from './components/terms'
+
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
           <Route path="/Movies" element={<Movies />} />
           <Route path="/Play/:type/:id" element={<Play />} />
           <Route path="/About" element={<About />} />
-          <Route path="/terms" element={<Terms />} />
           <Route path="/*" element={<Error />} />
         </Route>
       </Routes>

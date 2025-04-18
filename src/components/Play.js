@@ -10,7 +10,7 @@ function Play() {
   const remainingClicks = useRef(2);
   const lastClickTime = useRef(null);
   const [showVideo, setShowVideo] = useState(false);
-
+  const currentAdIndex = useRef(0);
   const [selectedSeason, setSelectedSeason] = useState("");
   const [selectedEpisode, setSelectedEpisode] = useState(1);
 
@@ -55,10 +55,16 @@ function Play() {
     }
   }, [selectedSeason, selectedEpisode, selectedItem]);
 
-  const showAd = () => {
-    window.open("https://dojo.mbd.one/app");
-  };
+  const ads = [
+    "https://superbet.ro/introducere",
+    "https://ro.betano.com/"
+  ];
 
+  const showAd = () => {
+    const adUrl = ads[currentAdIndex.current];
+    currentAdIndex.current = (currentAdIndex.current + 1) % ads.length;
+    window.open(adUrl, "_blank", "fullscreen=yes");
+  };
   const handlePlayClick = () => {
     if (remainingClicks.current > 0) {
       showAd();
