@@ -197,23 +197,23 @@ const CustomVideoPlayer = ({ season, episode }) => {
   }
   return (
     <div
-      ref={containerRef}
-      className="relative w-full bg-black rounded-lg overflow-hidden group"
-      style={{
-        aspectRatio: `${videoDimensions.width}/${videoDimensions.height}`,
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => isPlaying && setControlsVisible(false)}
-    >
-      <video
-        key={videoSrc}
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        controls={false}
-        onClick={handlePlayPause}
-        preload="metadata"
-        src={videoSrc}
-      >
+    ref={containerRef}
+    className="relative w-full bg-black rounded-lg overflow-hidden group"
+    style={{
+      aspectRatio: isFullscreen ? 'auto' : '16/9',
+    }}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={() => isPlaying && setControlsVisible(false)}
+  >
+    <video
+      key={videoSrc}
+      ref={videoRef}
+      className={`w-full h-full ${isFullscreen ? 'object-contain' : 'object-cover'}`}
+      controls={false}
+      onClick={handlePlayPause}
+      preload="metadata"
+      src={videoSrc}
+    > 
         Your browser does not support the video tag.
       </video>
 

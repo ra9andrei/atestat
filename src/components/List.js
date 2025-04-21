@@ -1627,7 +1627,7 @@ const List = [
   },
   {
     title: "Terminator",
-    description: "Terminator catches a criminal",
+    description: "The Terminator takes on Timisoara’s most notorious crimes.",
     id: "MOV041",
     thumbnail: "/Screenshot_20230606_225741_Gallery (2).png",
     trailer_url: terminator,
